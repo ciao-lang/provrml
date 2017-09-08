@@ -48,6 +48,8 @@ these are only some of them.
 
 
 :- use_package(pillow).
+:- use_module(library(http/http_client)).
+:- use_module(library(http/url)).
 
 %:- use_module(library(basicprops)).
 :- use_module(library(provrml/provrml_io), 
