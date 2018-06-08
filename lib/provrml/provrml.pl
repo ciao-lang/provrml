@@ -18,7 +18,7 @@
 
 :- doc(author, "G@..{o}ran Smedb@..{a}ck").
 :- doc(author, "Manuel Carro (some changes)").
-:- doc(author, "The CLIP Group").
+:- doc(author, "The Ciao Development Team").
 
 :- doc(copyright,"
 Copyright @copyright{} 1998-2002 The Clip Group.
