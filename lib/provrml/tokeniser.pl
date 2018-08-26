@@ -4,6 +4,7 @@
 
 :- doc(author, "G@..{o}ran Smedb@..{a}ck").
 
+:- use_module(engine(io_basic)).
 :- use_module(library(lists)).
 :- use_module(library(provrml/provrmlerror)).
 

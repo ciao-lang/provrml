@@ -40,6 +40,8 @@
         [fieldType/1]).
 :- use_module(library(provrml/field_value), [parse/1]).
 
+:- use_module(library(lists), [member/2]).
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %More checks could be done: the nodes has only a fixed set of 
 %possible children nodes. In the dictionary module under each node there

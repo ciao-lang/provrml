@@ -62,6 +62,8 @@ these are only some of them.
 :- use_module(library(provrml/generator), 
         [generator/2]).
 
+:- use_module(library(lists), [member/2]).
+
 :- set_prolog_flag(write_strings,on).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
