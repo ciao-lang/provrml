@@ -1,6 +1,6 @@
 :- module(_, [], [doccfg]).
 
-:- include(ciao_docsrc(common/'LPDOCCOMMON')).
+:- include(core_docsrc(common/'LPDOCCOMMON')).
 
 %filepath := at_bundle(provrml, 'lib').
 filepath := ~ciaofilepath_common.

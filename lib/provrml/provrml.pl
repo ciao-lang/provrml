@@ -23,7 +23,7 @@
 :- doc(copyright,"
 Copyright @copyright{} 1998-2002 The Clip Group.
 
-@include{DocCopyright.lpdoc}
+@include{FreeDocLicense.lpdoc}
 ").
 
 :- doc(module,"@apl{ProVRML} is Prolog library to handle VRML code.
