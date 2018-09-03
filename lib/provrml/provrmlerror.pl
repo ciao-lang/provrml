@@ -1,5 +1,6 @@
 :- module(provrmlerror,[error_vrml/1,output_error/1], [assertions,isomodes]).
 
+:- use_module(library(streams)).
 :- use_module(library(write)).
 
 
