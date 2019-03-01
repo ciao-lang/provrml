@@ -30,7 +30,7 @@
 :- set_prolog_flag(multi_arity_warnings, off).
 %:- discontiguous([token_read/3]).
 
-:- true prop parse(P) + regtype.
+:- prop parse(P) + regtype.
 parse(_).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

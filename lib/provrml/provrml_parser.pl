@@ -800,5 +800,5 @@ id(Id) -->
 	[id(Id)].
 
 
-:- true prop field_Id/1.
+:- prop field_Id/1.
 field_Id(_).

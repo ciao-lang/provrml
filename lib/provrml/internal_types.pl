@@ -21,7 +21,7 @@ understandable.
 ").
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:-  true regtype bound(Bound)
+:- regtype bound(Bound)
 	# "@var{Bound} is a variable interval.".
 
 :- doc(bound/1,"Min is a number or an atom that indicates the 
@@ -33,7 +33,7 @@ bound(bound(Min,Max)) :-
 	atm(Max).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:-  true regtype bound_double(Bound)
+:- regtype bound_double(Bound)
 	# "@var{Bound} is a variable interval.".
 
 :- doc(bound_double/1,"Min is a number or an atom that indicates the 
@@ -49,7 +49,7 @@ bound_double(bound(Min0,Max0,Min1,Max1)) :-
 	atm(Max1).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:-  true regtype dictionary(Dictionary) 
+:- regtype dictionary(Dictionary) 
 	# "@var{Dictionary} is a dictionary.".
 
 :- doc(dictionary/1,"Dic is a tree structure and is used as the 
@@ -60,7 +60,7 @@ dictionary(dic(Dic)) :-
 	tree(Dic).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:- true regtype tree(Tree)
+:- regtype tree(Tree)
 	# "@var{Tree} is a tree structure.".
 
 :- doc(tree/1,"Key is the search-key, Leaf is the information, 
@@ -75,7 +75,7 @@ tree(tree(Key,Leaf,Left,Right)) :-
 	tree(Right).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:-  true regtype leaf(Leaf)
+:- regtype leaf(Leaf)
 	# "@var{Leaf} is a leaf structure.".
 
 :- doc(leaf/1,"Key is the search-key, Type an identifier for different 
@@ -92,7 +92,7 @@ leaf(leaf(Key,Type,Info,MoreLeafs)) :-
 	leaf(MoreLeafs).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:-  true regtype parse(Parse)
+:- regtype parse(Parse)
 	# "@var{Parse} is a parse structure.".
 
 :- doc(parse/1,"In is the list of tokens to parse and Out is the 
@@ -108,7 +108,7 @@ parse(parse(In,Out,Env,Dic)) :-
 	dictionary(Dic).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:- true  regtype environment(Environment)
+:-  regtype environment(Environment)
 	# "@var{Environment} is an environment structure.".
 
 :- doc(environment/1,"EnvironmentType one of 'DEF','PROTO','EXTERNPROTO' 
@@ -122,7 +122,7 @@ environment(env(Env,Name,WhiteSpace)) :-
 	whitespace(WhiteSpace).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:- true regtype whitespace(Whitespace)
+:- regtype whitespace(Whitespace)
 	# "@var{Whitespace} is a whitespace structure.".
 
 :- doc(whitespace/1,"The Row and Indentation information. The row 
@@ -136,6 +136,6 @@ whitespace(w(Row,Indentation)) :-
 	number(Indentation).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%:- true regtype stream(X) # "@var{X} is a stream for input/output.".
+%:- regtype stream(X) # "@var{X} is a stream for input/output.".
 
 %stream(_).

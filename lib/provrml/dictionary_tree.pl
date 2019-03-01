@@ -62,10 +62,10 @@ create_tree(Element,tree(Key,Leaf, _Left, _Right)) :-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-:- true prop element(Element) + regtype.
+:- prop element(Element) + regtype.
 element(element(_,_,_)).
 
-:- true prop leaf(Leaf) + regtype.
+:- prop leaf(Leaf) + regtype.
 leaf(leaf(_,_,_,_)).
 
 :- pred create_leaf(+Element,-Leaf)
