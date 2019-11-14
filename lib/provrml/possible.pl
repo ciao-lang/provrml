@@ -17,28 +17,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 continue(Clause) -->
-	
-	{possible(Clause,Possibilities,Type)},
-	 look_ahead(Type,Ahead),
-	 {memberchk(Ahead,Possibilities)}.
+    
+    {possible(Clause,Possibilities,Type)},
+     look_ahead(Type,Ahead),
+     {memberchk(Ahead,Possibilities)}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 look_ahead(token,Token,[Val|Rest],[Val|Rest]) :-
-	Val =.. [Token|_Value].
+    Val =.. [Token|_Value].
 
 look_ahead(word,Word,[Val|Rest],[Val|Rest]) :-
-	Val =.. [_Token,Word|_Value].
+    Val =.. [_Token,Word|_Value].
 
 memberchk(_Element,[]) :-
-	!,
-	fail.
+    !,
+    fail.
 
 memberchk(Element,[Element|_More]) :-
-	!.
+    !.
 
 memberchk(Element,[_Something|More]) :-
-	memberchk(Element,More).
+    memberchk(Element,More).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred possible(+RuleName,-ListOfPossible,-TypeOfStructure)
@@ -85,9 +85,9 @@ possible(scriptGuts,[comment,whitespace,id],token).
 possible(scriptGut,[comment,whitespace,id],token).
 
 possible(fieldType,['MFColor','MFFloat','MFInt32','MFNode','MFRotation',
-	            'MFString','MFVec2f','MFVec3f','SFBool','SFColor',
-		    'SFFloat','SFImage','SFInt32','SFNode','SFRotation',
-		    'SFString','SFTime','SFVec2f','SFVec3f'],word).
+                'MFString','MFVec2f','MFVec3f','SFBool','SFColor',
+                'SFFloat','SFImage','SFInt32','SFNode','SFRotation',
+                'SFString','SFTime','SFVec2f','SFVec3f'],word).
 
 possible(fieldValue,[comment,whitespace,id,float,integer,hex,exp,id,string,
-	             parenthesis_list_open],token).
+                 parenthesis_list_open],token).

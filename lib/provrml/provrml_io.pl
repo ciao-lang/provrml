@@ -1,16 +1,16 @@
 :- module(provrml_io,[
-	     out/1,
-	     out/3,
-	     convert_atoms_to_string/2,
-	     read_terms_file/2,
-	     write_terms_file/2,
-	     read_vrml_file/2,
-	     write_vrml_file/2
-	     ],[assertions,
-	        isomodes,
-		dcg,
-		iso,
-		regtypes]).
+         out/1,
+         out/3,
+         convert_atoms_to_string/2,
+         read_terms_file/2,
+         write_terms_file/2,
+         read_vrml_file/2,
+         write_vrml_file/2
+         ],[assertions,
+            isomodes,
+            dcg,
+            iso,
+            regtypes]).
 
 :- doc(author, "G@..{o}ran Smedb@..{a}ck").
 
@@ -34,51 +34,51 @@
       output in the second argument. The tird argument is the rest, nil.".
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 out(Out) :-
-	out(Out,_,[]).
+    out(Out,_,[]).
 
 out([]) -->
-	[].
+    [].
 
 out([Out|Rest]) -->
-	{
-	atomic(Out),
-	name(Out,[35|_More])
-	},
-	out0(Out),
-	out0('\n'),
-	out(Rest).
+    {
+    atomic(Out),
+    name(Out,[35|_More])
+    },
+    out0(Out),
+    out0('\n'),
+    out(Rest).
 
 out([List|Rest]) -->
-	{
-	list(List)
-	},
-	out(List),
-	out(Rest).
+    {
+    list(List)
+    },
+    out(List),
+    out(Rest).
 
 out([Out|Rest]) -->
-	out0(Out),
-	out(Rest).
+    out0(Out),
+    out(Rest).
 
 out0(Atom) -->
-	[Atom].
+    [Atom].
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred convert_atoms_to_string(+Atoms,-String) 
-        :: list(atm) * list(num)
-        # "The predicate transforms a list of atoms to a string.".
+    :: list(atm) * list(num)
+    # "The predicate transforms a list of atoms to a string.".
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 convert_atoms_to_string(Atoms,String) :-
-	convert_atoms_to_code(Atoms,String).
+    convert_atoms_to_code(Atoms,String).
 
 convert_atoms_to_code([],[]).
 convert_atoms_to_code([A|Rest],Answer) :-
-	( number(A)
-	->number_codes(A,String)
-	; atom_codes(A,String)
-	),
-	convert_atoms_to_code(Rest,Rest_ans),
-	append(String,Rest_ans,Answer).
+    ( number(A)
+    ->number_codes(A,String)
+    ; atom_codes(A,String)
+    ),
+    convert_atoms_to_code(Rest,Rest_ans),
+    append(String,Rest_ans,Answer).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred read_terms_file(+Filename, -Term) 
@@ -117,14 +117,14 @@ read_vrml_file(FileName, Data) :-
     !.
 
 read_data(Stream, Data) :-
-	get0(Stream, C),
-	read_data3(Stream, C, Data).
+    get0(Stream, C),
+    read_data3(Stream, C, Data).
 
 read_data3(_, -1, []).
 
 read_data3(Stream, C, [C|Acc]) :-
-	get0(Stream, C1),
-	read_data3(Stream, C1, Acc).
+    get0(Stream, C1),
+    read_data3(Stream, C1, Acc).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred write_vrml_file(+FileName, +Data)
@@ -135,15 +135,15 @@ read_data3(Stream, C, [C|Acc]) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 write_vrml_file(FileName, Data) :-
-	open(FileName, write, Stream),
-	write_data(Stream, Data),
-	close(Stream).
+    open(FileName, write, Stream),
+    write_data(Stream, Data),
+    close(Stream).
 
 write_data(_,[]).
 
 write_data(Stream, [C|Rest]) :-
-	put(Stream, C),
-	write_data(Stream, Rest).
+    put(Stream, C),
+    write_data(Stream, Rest).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred write_terms_file(+FileName, +List)
@@ -154,29 +154,29 @@ write_data(Stream, [C|Rest]) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 write_terms_file(FileName, Data) :-
-	open(FileName, write, Stream),
-	write(Stream, '[' ),
-	write_data_term(Stream, Data),
-	close(Stream).
+    open(FileName, write, Stream),
+    write(Stream, '[' ),
+    write_data_term(Stream, Data),
+    close(Stream).
 
 write_data_term(Stream,[]) :-
-	write(Stream, '].\n' ).
-	
+    write(Stream, '].\n' ).
+    
 
 write_data_term(Stream, [C|Rest]) :-
-	writeq(Stream, C),
-	write_data_term_mid(Stream, Rest).
+    writeq(Stream, C),
+    write_data_term_mid(Stream, Rest).
 
 write_data_term_mid(Stream,[]) :-
-	write(Stream, '].\n' ).
-	
+    write(Stream, '].\n' ).
+    
 
 write_data_term_mid(Stream, Rest) :-
-	put(Stream, 0',),
-	write_data_term(Stream, Rest).
+    put(Stream, 0',),
+    write_data_term(Stream, Rest).
 
 put(Stream, Char) :-
-	put_code(Stream, Char).
+    put_code(Stream, Char).
 
 get0(Stream, Char) :-
-	get_code(Stream, Char).
+    get_code(Stream, Char).

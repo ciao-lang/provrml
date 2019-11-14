@@ -1,17 +1,17 @@
 :- module(provrml,[vrml_web_to_terms/2,
-	                 vrml_file_to_terms/2,
-			 vrml_web_to_terms_file/2,
-			 vrml_file_to_terms_file/2,
-			 terms_file_to_vrml/2,
-			 terms_file_to_vrml_file/2,
-			 terms_to_vrml_file/2,
-			 terms_to_vrml/2,
-			 vrml_to_terms/2,
-			 vrml_in_out/2,
-			 vrml_http_access/2 ],
-			 [assertions,
-			  isomodes,
-			  regtypes]).
+                     vrml_file_to_terms/2,
+                     vrml_web_to_terms_file/2,
+                     vrml_file_to_terms_file/2,
+                     terms_file_to_vrml/2,
+                     terms_file_to_vrml_file/2,
+                     terms_to_vrml_file/2,
+                     terms_to_vrml/2,
+                     vrml_to_terms/2,
+                     vrml_in_out/2,
+                     vrml_http_access/2 ],
+                     [assertions,
+                      isomodes,
+                      regtypes]).
 
 
 :- doc(title,"ProVRML - a Prolog interface for VRML").
@@ -53,14 +53,14 @@ these are only some of them.
 
 %:- use_module(library(basicprops)).
 :- use_module(library(provrml/provrml_io), 
-        [read_terms_file/2,
-         read_vrml_file/2,
-         write_terms_file/2,
-         write_vrml_file/2]).
+    [read_terms_file/2,
+     read_vrml_file/2,
+     write_terms_file/2,
+     write_vrml_file/2]).
 :- use_module(library(provrml/provrml_parser), 
-        [parser/2]).
+    [parser/2]).
 :- use_module(library(provrml/generator), 
-        [generator/2]).
+    [generator/2]).
 
 :- use_module(library(lists), [member/2]).
 
@@ -84,8 +84,8 @@ these are only some of them.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 vrml_web_to_terms(Address, Terms) :-
-	read_page(Address, VRML),
-	parser(VRML, Terms).
+    read_page(Address, VRML),
+    parser(VRML, Terms).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred vrml_web_to_terms_file(+WEBAddress,+FileName)
@@ -95,10 +95,10 @@ vrml_web_to_terms(Address, Terms) :-
     the predicate will write the prolog_terms to the file.".
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
+    
 vrml_web_to_terms_file(Address, FileTerms) :-
-	vrml_web_to_terms(Address, Terms),
-	write_terms_file(FileTerms, Terms).
+    vrml_web_to_terms(Address, Terms),
+    write_terms_file(FileTerms, Terms).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- discontiguous vrml_file_to_terms/2.
@@ -112,8 +112,8 @@ vrml_web_to_terms_file(Address, FileTerms) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 vrml_file_to_terms(File, Terms) :-
-	read_vrml_file(File, VRML),
-	parser(VRML, Terms).
+    read_vrml_file(File, VRML),
+    parser(VRML, Terms).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred vrml_file_to_terms(+FileName,+Terms)
@@ -125,8 +125,8 @@ vrml_file_to_terms(File, Terms) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 vrml_file_to_terms_file(FileVRML, FileTerms) :-
-	vrml_file_to_terms(FileVRML, Terms),
-	write_terms_file(FileTerms, Terms).
+    vrml_file_to_terms(FileVRML, Terms),
+    write_terms_file(FileTerms, Terms).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred terms_file_to_vrml(+FileName, -List)
@@ -138,8 +138,8 @@ vrml_file_to_terms_file(FileVRML, FileTerms) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 terms_file_to_vrml(File, VRML) :-
-	read_terms_file(File, T),
-	generator(T, VRML).
+    read_terms_file(File, T),
+    generator(T, VRML).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred terms_file_to_vrml_file(+Atom, +Atom)
@@ -151,9 +151,9 @@ terms_file_to_vrml(File, VRML) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 terms_file_to_vrml_file(TermFile, VRMLFile) :-
-	read_terms_file(TermFile, T),
-	generator(T, VRML),
-	write_vrml_file(VRMLFile, VRML).
+    read_terms_file(TermFile, T),
+    generator(T, VRML),
+    write_vrml_file(VRMLFile, VRML).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred terms_to_vrml_file(+Term, +FileName)
@@ -165,8 +165,8 @@ terms_file_to_vrml_file(TermFile, VRMLFile) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 terms_to_vrml_file(Terms, FileOut) :-
-	generator(Terms, VRML),
-	write_vrml_file(FileOut, VRML).
+    generator(Terms, VRML),
+    write_vrml_file(FileOut, VRML).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred terms_to_vrml(+Term, -VRMLCode)
@@ -178,7 +178,7 @@ terms_to_vrml_file(Terms, FileOut) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 terms_to_vrml(Terms, VRML) :-
-	generator(Terms, VRML).
+    generator(Terms, VRML).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred vrml_to_terms(+VRMLCode, -Terms)
@@ -189,7 +189,7 @@ terms_to_vrml(Terms, VRML) :-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 vrml_to_terms(VRML, Terms) :-
-	parser(VRML, Terms).
+    parser(VRML, Terms).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred vrml_in_out(+FileName, +FileName)
@@ -221,16 +221,16 @@ vrml_in_out(FileIn, FileOut) :-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 vrml_http_access(Address, FileOutBase) :-
-	read_page(Address, VRML),
-	atom_concat(FileOutBase,'_first.wrl',VRMLName),
-	write_vrml_file(VRMLName, VRML),
-	parser(VRML, Terms),
-	!,
-	atom_concat(FileOutBase,'.term',TermName),
-	write_terms_file(TermName, Terms),
-	terms_to_vrml(Terms, VRML1),
-	atom_concat(FileOutBase,'.wrl',FileOut),
-	write_vrml_file(FileOut, VRML1).
+    read_page(Address, VRML),
+    atom_concat(FileOutBase,'_first.wrl',VRMLName),
+    write_vrml_file(VRMLName, VRML),
+    parser(VRML, Terms),
+    !,
+    atom_concat(FileOutBase,'.term',TermName),
+    write_terms_file(TermName, Terms),
+    terms_to_vrml(Terms, VRML1),
+    atom_concat(FileOutBase,'.wrl',FileOut),
+    write_vrml_file(FileOut, VRML1).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- doc(doinclude, read_page/2).
@@ -241,12 +241,12 @@ vrml_http_access(Address, FileOutBase) :-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 read_page(File, Content) :-
-        url_info(File, UI),
-        fetch_url(UI,[],Response),
-	member(content(Content),Response).
+    url_info(File, UI),
+    fetch_url(UI,[],Response),
+    member(content(Content),Response).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     
 
 %% member(X, [X|_]).
 %% member(X, [_|More]) :-
-%% 	member(X,More).
+%%      member(X,More).
