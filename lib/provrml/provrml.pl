@@ -240,10 +240,11 @@ vrml_http_access(Address, FileOutBase) :-
    "This routine reads a page on the web using pillow routines.".
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-read_page(File, Content) :-
+read_page(File, String) :-
     url_info(File, UI),
     fetch_url(UI,[],Response),
-    member(content(Content),Response).
+    member(content(Bytes),Response).
+    String=Bytes. % TODO: use string_bytes(String, Bytes).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     
 
