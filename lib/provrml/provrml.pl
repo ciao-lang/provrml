@@ -243,7 +243,7 @@ vrml_http_access(Address, FileOutBase) :-
 read_page(File, String) :-
     url_info(File, UI),
     fetch_url(UI,[],Response),
-    member(content(Bytes),Response).
+    member(content(Bytes),Response),
     String=Bytes. % TODO: use string_bytes(String, Bytes).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     
