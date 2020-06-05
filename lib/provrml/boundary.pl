@@ -3,7 +3,7 @@
                 boundary_rotation_last/2,
                 reserved_words/1,
                 children_nodes/1],
-                [assertions,isomodes,regtypes,iso]).
+                [assertions,isomodes,regtypes]).
 
 :- doc(author, "G@..{o}ran Smedb@..{a}ck").
 

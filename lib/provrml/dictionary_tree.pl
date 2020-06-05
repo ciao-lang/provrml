@@ -7,7 +7,7 @@
     dictionary_lookup/5,
     merge_tree/2
     ],
-    [assertions,isomodes,regtypes,iso]).
+    [assertions,isomodes,regtypes]).
 
 :- doc(author, "G@..{o}ran Smedb@..{a}ck").
 

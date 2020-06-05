@@ -16,11 +16,15 @@
     lookup_field_access/4,
     lookup_set_def/3,
     lookup_set_prototype/4,
-    lookup_set_extern_prototype/4],[assertions, isomodes, dcg, iso]).
+    lookup_set_extern_prototype/4],[assertions, isomodes, dcg]).
 
 :- doc(author, "G@..{o}ran Smedb@..{a}ck").
 
 %:- include(library(types)).
+
+:- use_module(library(streams)).
+:- use_module(library(write)).
+:- use_module(library(iso_misc), [sub_atom/5]).
 
 %:- use_module(library(basicprops)).
 :- use_module(library(provrml/provrmlerror)).

@@ -1,5 +1,5 @@
 :- module(provrml_parser, [parser/2,nodeDeclaration/4,field_Id/1], 
-    [assertions,isomodes,dcg,regtypes,iso]).
+    [assertions,isomodes,dcg,regtypes]).
 
 :- doc(author, "G@..{o}ran Smedb@..{a}ck").
 

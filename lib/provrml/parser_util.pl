@@ -45,7 +45,7 @@
     get_first_parsed/3,
     remove_code/3,
     look_ahead/3
-    ],[assertions, isomodes, iso, dcg]).
+    ],[assertions, isomodes, dcg]).
 
 
 :- doc(author, "G@..{o}ran Smedb@..{a}ck").
@@ -53,6 +53,9 @@
 
 %:- include(library(types)).
 
+:- use_module(library(iso_misc), [compound/1]).
+:- use_module(library(streams)).
+:- use_module(library(write)).
 :- use_module(library(lists)).
 :- use_module(library(provrml/dictionary_tree)).
 :- use_module(library(provrml/internal_types)).

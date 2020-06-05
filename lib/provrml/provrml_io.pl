@@ -9,13 +9,13 @@
          ],[assertions,
             isomodes,
             dcg,
-            iso,
             regtypes]).
 
 :- doc(author, "G@..{o}ran Smedb@..{a}ck").
 
-:- use_module(engine(stream_basic)).
-:- use_module(engine(io_basic)).
+:- use_module(library(streams)).
+:- use_module(library(read)).
+:- use_module(library(write)).
 :- use_module(library(lists), [append/3]).
 
 :- set_prolog_flag(write_strings,on).

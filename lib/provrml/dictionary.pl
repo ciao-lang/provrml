@@ -1,5 +1,5 @@
 :- module(dictionary, [dictionary/6],
-                  [assertions,isomodes,regtypes,iso]).
+                  [assertions,isomodes,regtypes]).
 
 :- doc(author, "G@..{o}ran Smedb@..{a}ck").
 

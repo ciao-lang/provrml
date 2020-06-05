@@ -1,5 +1,5 @@
 :- module(generator, [generator/2,nodeDeclaration/4], 
-                 [assertions,regtypes,isomodes,dcg,iso]).
+                 [assertions,regtypes,isomodes,dcg]).
 
 :- doc(author, "G@..{o}ran Smedb@..{a}ck").
 

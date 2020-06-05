@@ -11,7 +11,6 @@
 %:- use_package(isomodes).
 %:- use_package(types).
 
-%:- include(library(iso)).
 %:- use_module(library(iso_char)).
 %%:- use_module(library(basicprops)).
 :- use_module(library(lists)).
