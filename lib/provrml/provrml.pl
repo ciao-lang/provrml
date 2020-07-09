@@ -142,10 +142,9 @@ terms_file_to_vrml(File, VRML) :-
     generator(T, VRML).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:- pred terms_file_to_vrml_file(+Atom, +Atom)
+:- pred terms_file_to_vrml_file(+TermFile, +VRMLFile)
    :: atm * atm
-   #
-   "From a given filename with prologterms on the special format,
+   #"From a given filename with prologterms on the special format,
     the predicate writes the corresponding VRML-code to second filename.".
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,8 +157,7 @@ terms_file_to_vrml_file(TermFile, VRMLFile) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred terms_to_vrml_file(+Term, +FileName)
    :: atm * atm
-   #
-   "Given prolog-terms the predicate writes the corresponding 
+   #"Given prolog-terms the predicate writes the corresponding 
     VRML-code to the given file.".
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -171,8 +169,7 @@ terms_to_vrml_file(Terms, FileOut) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred terms_to_vrml(+Term, -VRMLCode)
    :: atm * string
-   #
-   "Given prolog-terms the predicate returns a list with the
+   #"Given prolog-terms the predicate returns a list with the
     corresponding VRML-code.".
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -183,8 +180,7 @@ terms_to_vrml(Terms, VRML) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred vrml_to_terms(+VRMLCode, -Terms)
    :: string * atm
-   #
-   "Given a list with VRML-code the predicate will return the 
+   #"Given a list with VRML-code the predicate will return the 
     corresponding prolog-terms.".
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -192,10 +188,9 @@ vrml_to_terms(VRML, Terms) :-
     parser(VRML, Terms).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-:- pred vrml_in_out(+FileName, +FileName)
+:- pred vrml_in_out(+FileNameIn, +FileNameOut)
    :: atm * atm
-   #
-   "This is a controll-predicate that given a filename to a VRML-file
+   #"This is a controll-predicate that given a filename to a VRML-file
     and a filename, the predicate will read the VRML-code. Transform
     it to prolog-terms and then transform it back to VRRML-code and 
     write it to the latter file.".
@@ -212,8 +207,7 @@ vrml_in_out(FileIn, FileOut) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 :- pred vrml_http_access(+ReadFilename, +BaseFilename)
    :: atm * atm
-   #
-   "Given a web-address to a VRML-file the predicate will load the 
+   #"Given a web-address to a VRML-file the predicate will load the 
     code, write it first to the second argument with extension '_first.wrl'.
     Then it transform the code to prolog terms and write it with the 
     extension '.term'. Transform it back to VRML-code and write it
